@@ -8,7 +8,7 @@ services:
     image: grafana/loki:2.9.2
     container_name: loki
     volumes:
-    - ./loki-config.yaml:/etc/loki/local-config.yaml
+    - ./loki-config.yml:/etc/loki/local-config.yaml
     - loki-data:/loki
     command: -config.file=/etc/loki/local-config.yaml
 
@@ -17,7 +17,7 @@ services:
     container_name: promtail
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - ./promtail-config.yaml:/etc/promtail/config.yml
+    - ./promtail-config.yml:/etc/promtail/config.yml
     command: -config.file=/etc/promtail/config.yml
 
   grafana:
